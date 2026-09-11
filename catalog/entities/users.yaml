@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: gusLopezC
+spec:
+  profile:
+    displayName: Gus Lopez
+    email: guslopezc@example.com
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Gus&backgroundColor=transparent
+  memberOf: [development]
+
