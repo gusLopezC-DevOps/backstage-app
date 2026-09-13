@@ -269,6 +269,19 @@ const websiteEntityPage = (
       <EntityKubernetesContent />
     </EntityLayout.Route>
 
+    <EntityLayout.Route path="/kyverno" title="Kyverno Policy">
+      <div style={{ overflowX: 'auto', width: '100%', display: 'block' }}>
+        <Grid container spacing={3} alignItems="stretch">
+          <Grid item md={6}>
+            <KyvernoOverviewCard />
+          </Grid>
+          <Grid item md={6}>
+            <KyvernoPolicyReportsTable />
+          </Grid>
+        </Grid>
+      </div>
+    </EntityLayout.Route>
+
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
