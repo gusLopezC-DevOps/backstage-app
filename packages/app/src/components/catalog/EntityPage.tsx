@@ -64,10 +64,8 @@ import {
   isGithubActionsAvailable,
 } from '@backstage-community/plugin-github-actions';
 
-import {
-  KyvernoPolicyReportsTable,
-  KyvernoOverviewCard,
-} from '@terasky/backstage-plugin-kyverno-policy-reports';
+import KyvernoPolicyReportsTable from '../kyverno/KyvernoPolicyReportsTable';
+import KyvernoOverviewCard from '../kyverno/KyvernoOverviewCard';
 
 import {
   KubernetesResourceGraph,
