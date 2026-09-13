@@ -41,6 +41,7 @@ import {
   EntityCatalogGraphCard,
 } from '@backstage/plugin-catalog-graph';
 import {
+  Entity,
   RELATION_API_CONSUMED_BY,
   RELATION_API_PROVIDED_BY,
   RELATION_CONSUMES_API,
@@ -50,6 +51,7 @@ import {
   RELATION_PART_OF,
   RELATION_PROVIDES_API,
 } from '@backstage/catalog-model';
+import { DoraMetricsContent } from '@c2l2c/backstage-plugin-dora-metrics';
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
@@ -74,6 +76,9 @@ import {
 } from '@terasky/backstage-plugin-kubernetes-resources-frontend';
 
 import { EntityScaffolderContent } from '@terasky/backstage-plugin-entity-scaffolder-content';
+
+const isDoraMetricsAvailable = (entity: Entity) =>
+  Boolean(entity.metadata.annotations?.['github.com/project-slug']);
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -168,6 +173,14 @@ const serviceEntityPage = (
     </EntityLayout.Route>
 
     <EntityLayout.Route
+      path="/dora-metrics"
+      title="DORA Metrics"
+      if={isDoraMetricsAvailable}
+    >
+      <DoraMetricsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route
       path="/kubernetes-resources"
       title="Resources"
       if={isKubernetesResourcesAvailable}
@@ -257,6 +270,14 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/dora-metrics"
+      title="DORA Metrics"
+      if={isDoraMetricsAvailable}
+    >
+      <DoraMetricsContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route

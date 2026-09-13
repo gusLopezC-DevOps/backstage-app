@@ -15,6 +15,7 @@ import {
 } from '@backstage/plugin-catalog-import';
 import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
+import { OpenCostPage } from '@backstage-community/plugin-opencost';
 import { SearchPage } from '@backstage/plugin-search';
 import {
   TechDocsIndexPage,
@@ -104,7 +105,6 @@ const app = createApp({
       <SignInPage
         {...props}
         providers={[
-          'guest',
           {
             id: 'github-auth-provider',
             title: 'GitHub',
@@ -167,6 +167,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/opencost" element={<OpenCostPage />} />
   </FlatRoutes>
 );
 
