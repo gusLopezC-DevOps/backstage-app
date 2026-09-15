@@ -17,6 +17,8 @@ import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
 import { OpenCostPage } from '@backstage-community/plugin-opencost';
 import { SearchPage } from '@backstage/plugin-search';
+import { NotificationsPage } from '@backstage/plugin-notifications';
+import { signalsPlugin } from '@backstage/plugin-signals';
 import {
   TechDocsIndexPage,
   techdocsPlugin,
@@ -83,6 +85,7 @@ const DarkThemeProvider = ({ children }: { children: React.ReactNode }) => (
 
 const app = createApp({
   apis,
+  plugins: [signalsPlugin],
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -168,6 +171,7 @@ const routes = (
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/opencost" element={<OpenCostPage />} />
+    <Route path="/notifications" element={<NotificationsPage />} />
   </FlatRoutes>
 );
 

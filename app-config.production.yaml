@@ -89,6 +89,22 @@ kubernetes:
 kyverno:
   enablePermissions: false
 
+search:
+  pg:
+    highlightOptions:
+      useHighlight: true
+      maxWordsBefore: 30
+      maxWordsAfter: 30
+  collators:
+    catalog:
+      schedule:
+        frequency:
+          minutes: 5
+    techdocs:
+      schedule:
+        frequency:
+          minutes: 10
+
 # Kubernetes Resources — TeraSky permissions backend
 kubernetesResources:
   enablePermissions: true

@@ -1,11 +1,13 @@
 import React from 'react';
 import { makeStyles, Theme, Grid, Paper } from '@material-ui/core';
+import ExtensionIcon from '@material-ui/icons/Extension';
 
-import { CatalogSearchResultListItem } from '@backstage/plugin-catalog';
 import {
+  ApiDefinitionSearchResultListItem,
   catalogApiRef,
   CATALOG_FILTER_EXISTS,
 } from '@backstage/plugin-catalog-react';
+import { CatalogSearchResultListItem } from '@backstage/plugin-catalog';
 import { TechDocsSearchResultListItem } from '@backstage/plugin-techdocs';
 
 import { SearchType } from '@backstage/plugin-search';
@@ -56,14 +58,17 @@ const SearchPage = () => {
             </Paper>
           </Grid>
           <Grid item xs={3}>
-            <SearchType.Accordion
-              name="Result Type"
-              defaultValue="software-catalog"
+            <SearchType.Tabs
               types={[
                 {
-                  value: 'software-catalog',
-                  name: 'Software Catalog',
+                  value: 'component',
+                  name: 'Components',
                   icon: <CatalogIcon />,
+                },
+                {
+                  value: 'api',
+                  name: 'APIs',
+                  icon: <ExtensionIcon />,
                 },
                 {
                   value: 'techdocs',
@@ -98,7 +103,7 @@ const SearchPage = () => {
                 className={classes.filter}
                 label="Kind"
                 name="kind"
-                values={['Component', 'Template']}
+                values={['Component', 'API', 'Template']}
               />
               <SearchFilter.Checkbox
                 className={classes.filter}
@@ -112,6 +117,7 @@ const SearchPage = () => {
             <SearchPagination />
             <SearchResult>
               <CatalogSearchResultListItem icon={<CatalogIcon />} />
+              <ApiDefinitionSearchResultListItem icon={<ExtensionIcon />} />
               <TechDocsSearchResultListItem icon={<DocsIcon />} />
             </SearchResult>
           </Grid>
