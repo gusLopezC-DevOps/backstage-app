@@ -100,10 +100,14 @@ search:
       schedule:
         frequency:
           minutes: 5
+        timeout:
+          minutes: 3
     techdocs:
       schedule:
         frequency:
           minutes: 10
+        timeout:
+          minutes: 5
 
 # Kubernetes Resources — TeraSky permissions backend
 kubernetesResources:
