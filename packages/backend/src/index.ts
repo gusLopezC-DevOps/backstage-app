@@ -26,6 +26,8 @@ backend.add(import('@backstage/plugin-scaffolder-backend-module-notifications'))
 backend.add(import('@backstage/plugin-auth-backend'));
 // See https://backstage.io/docs/auth/github/provider
 backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
+// See https://backstage.io/docs/auth/guest/provider
+backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
 
 // catalog plugin
 backend.add(import('@backstage/plugin-catalog-backend'));
